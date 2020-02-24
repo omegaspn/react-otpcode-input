@@ -1,0 +1,30 @@
+{
+  "name": "otp-input",
+  "version": "0.1.0",
+  "description": "OTP Input Component",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omegaspn/otp-input.git"
+  },
+  "keywords": [
+    "otp"
+  ],
+  "author": "Supanat Wongchai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/omegaspn/otp-input/issues"
+  },
+  "homepage": "https://github.com/omegaspn/otp-input#readme",
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
