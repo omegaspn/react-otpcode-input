@@ -9,8 +9,6 @@ exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _rebass = require("rebass");
-
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -27,16 +25,18 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  z-index: 1;\n  color: transparent;\n  opacity: 0;\n\n  &:focus {\n    outline: none;\n  }\n"]);
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
 
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+  return data;
+}
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  z-index: 1;\n  color: transparent;\n  opacity: 0;\n\n  &:focus {\n    outline: none;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  border: 0;\n  border-bottom: solid 2px #e6e8ec;\n  border-color: ", ";\n  background-color: transparent;\n  width: 32px;\n  margin: 0px 4px;\n  text-align: center;\n  outline: none;\n  color: transparent;\n  text-shadow: 0 0 0 #000;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -46,7 +46,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  border: 0;\n  border-bottom: solid 2px #e6e8ec;\n  border-color: ", ";\n  background-color: transparent;\n  width: 32px;\n  margin: 0px 4px;\n  text-align: center;\n  outline: none;\n  color: transparent;\n  text-shadow: 0 0 0 #000;\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -57,7 +57,9 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var SingleOTPInput = _styledComponents["default"].input(_templateObject(), function (props) {
+var Flex = _styledComponents["default"].div(_templateObject());
+
+var SingleOTPInput = _styledComponents["default"].input(_templateObject2(), function (props) {
   return props.active ? "#2b2b2b" : "#e6e8ec";
 });
 
@@ -65,7 +67,7 @@ var ContentEditableBox = _styledComponents["default"].input.attrs({
   contentEditable: true,
   suppressContentEditableWarning: true,
   type: "number"
-})(_templateObject2());
+})(_templateObject3());
 
 var isNumber = function isNumber(_char) {
   return !isNaN(_char);
@@ -74,20 +76,14 @@ var isNumber = function isNumber(_char) {
 var OtpInput = function OtpInput(_ref) {
   var numberOfInputs = _ref.numberOfInputs,
       onChange = _ref.onChange,
-      onComplete = _ref.onComplete,
-      value = _ref.value;
-
-  var identifiers = _toConsumableArray(new Array(numberOfInputs));
+      otp = _ref.otp;
+  var otpValue = otp.padEnd(numberOfInputs);
+  var inputs = Array(numberOfInputs).fill(0);
 
   var _useState = (0, _react.useState)(0),
       _useState2 = _slicedToArray(_useState, 2),
-      active = _useState2[0],
-      setActive = _useState2[1];
-
-  var _useState3 = (0, _react.useState)(value),
-      _useState4 = _slicedToArray(_useState3, 2),
-      otpValues = _useState4[0],
-      setOtpValues = _useState4[1];
+      activeIndex = _useState2[0],
+      setActiveIndex = _useState2[1];
 
   var contentEditableBoxRef = (0, _react.useRef)(null);
 
@@ -102,31 +98,24 @@ var OtpInput = function OtpInput(_ref) {
     e.preventDefault();
     var key = e.data || e.type; // Backspace, prevent set active when is on the first input
 
-    if (key === "backSpaceKey" && active > 0) {
-      setActive(active - 1);
-      setOtpValues(otpValues.slice(0, otpValues.length - 1));
-      onChange(otpValues);
+    if (key === "backSpaceKey" && activeIndex > 0) {
+      setActiveIndex(activeIndex - 1);
+      onChange(otp.slice(0, otp.length - 1));
     }
 
-    if (!isNumber(key)) return;else {
-      setActive(active + 1);
-      setOtpValues(otpValues + key);
-      onChange(otpValues);
+    if (isNumber(key)) {
+      setActiveIndex(activeIndex + 1);
+      onChange(otp + key);
     }
   };
 
   (0, _react.useEffect)(function () {
-    if (otpValues.length === numberOfInputs) {
-      onComplete(otpValues);
-    } // reset
-
-
-    if (value === "") {
-      setActive(0);
-      setOtpValues("");
+    // reset
+    if (otp === "") {
+      setActiveIndex(0);
       contentEditableBoxRef.current.focus();
     }
-  }, [value]);
+  }, [otp]);
   (0, _react.useEffect)(function () {
     var box = document.getElementById("contentEditableBox");
     box.addEventListener("keydown", handleKeyDown);
@@ -139,16 +128,12 @@ var OtpInput = function OtpInput(_ref) {
   return _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement(ContentEditableBox, {
     id: "contentEditableBox",
     ref: contentEditableBoxRef
-  }), _react["default"].createElement(_rebass.Flex, {
-    flexDirection: "row",
-    justifyContent: "center"
-  }, identifiers.map(function (val, i) {
+  }), _react["default"].createElement(Flex, null, inputs.map(function (v, i) {
     return _react["default"].createElement(SingleOTPInput, {
       key: i,
       id: "otp_".concat(i),
-      value: otpValues[i] || "",
-      active: i === active // autoFocus={i === active}
-
+      value: otpValue[i],
+      active: i === activeIndex
     });
   })));
 };
