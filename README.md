@@ -1,3 +1,3 @@
-# otp-input
+# react-otpcode-input
 
-OTP input component
+An OTP input component using React
