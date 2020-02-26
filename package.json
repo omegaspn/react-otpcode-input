@@ -1,6 +1,6 @@
 {
   "name": "react-otpcode-input",
-  "version": "0.1.13",
+  "version": "0.1.43",
   "description": "OTP Input Component",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/omegaspn/otp-input#readme",
   "dependencies": {
-    "@types/node": "^13.7.4"
+    "@types/node": "^13.7.4",
+    "rebass": "^4.0.7",
+    "styled-components": "^5.0.1"
   },
   "peerDependencies": {
     "react": "^16.2.0",
