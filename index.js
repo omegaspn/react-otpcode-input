@@ -66,7 +66,7 @@ var SingleOTPInput = _styledComponents["default"].input(_templateObject2(), func
 var ContentEditableBox = _styledComponents["default"].input.attrs({
   contentEditable: true,
   suppressContentEditableWarning: true,
-  type: "number"
+  type: "tel"
 })(_templateObject3());
 
 var isNumber = function isNumber(_char) {
@@ -76,7 +76,9 @@ var isNumber = function isNumber(_char) {
 var OtpInput = function OtpInput(_ref) {
   var numberOfInputs = _ref.numberOfInputs,
       onChange = _ref.onChange,
-      otp = _ref.otp;
+      onComplete = _ref.onComplete,
+      otp = _ref.otp,
+      disabled = _ref.disabled;
   var otpValue = otp.padEnd(numberOfInputs);
   var inputs = Array(numberOfInputs).fill(0);
 
@@ -104,8 +106,13 @@ var OtpInput = function OtpInput(_ref) {
     }
 
     if (isNumber(key)) {
+      var newOtp = otp + key;
       setActiveIndex(activeIndex + 1);
-      onChange(otp + key);
+      onChange(newOtp);
+
+      if (newOtp.length === numberOfInputs) {
+        onComplete(otp);
+      }
     }
   };
 
@@ -118,13 +125,17 @@ var OtpInput = function OtpInput(_ref) {
   }, [otp]);
   (0, _react.useEffect)(function () {
     var box = document.getElementById("contentEditableBox");
-    box.addEventListener("keydown", handleKeyDown);
-    box.addEventListener("textInput", handleTextInput);
+
+    if (!disabled) {
+      box.addEventListener("keydown", handleKeyDown);
+      box.addEventListener("textInput", handleTextInput);
+    }
+
     return function () {
       box.removeEventListener("keydown", handleKeyDown);
       box.removeEventListener("textInput", handleTextInput);
     };
-  }, [handleTextInput]);
+  }, [handleTextInput, disabled]);
   return _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement(ContentEditableBox, {
     id: "contentEditableBox",
     ref: contentEditableBoxRef
