@@ -2,7 +2,17 @@
 
 An OTP input component using React
 
-# API
+### Install
+
+```
+npm install react-otpcode-input --save
+```
+
+### Usage
+
+Coming soon
+
+### API
 
 <table>
   <tr>
@@ -35,7 +45,7 @@ An OTP input component using React
   </tr>
   <tr>
     <td>value</td>
-    <td>string / number</td>
+    <td>string</td>
     <td>true</td>
     <td>''</td>
     <td>The value of the OTP passed into the component.</td>
@@ -56,7 +66,7 @@ An OTP input component using React
   </tr>
 </table>
 
-## License
+### License
 
 ![NPM](https://img.shields.io/npm/l/react-otpcode-input)
 
