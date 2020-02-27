@@ -111,7 +111,7 @@ var OtpInput = function OtpInput(_ref) {
       onChange(newOtp);
 
       if (newOtp.length === numberOfInputs) {
-        onComplete(otp);
+        onComplete(newOtp);
       }
     }
   };
