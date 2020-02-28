@@ -144,6 +144,7 @@ var OtpInput = function OtpInput(_ref) {
       key: i,
       id: "otp_".concat(i),
       value: otpValue[i],
+      onChange: function onChange() {},
       active: i === activeIndex
     });
   })));
