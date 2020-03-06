@@ -21,10 +21,12 @@ describe("OtpInput", () => {
   });
 
   const keyOtp = async otp => {
-    for (const key of otp) {
-      await act(async () => {
-        await sendKey({ data: key, preventDefault: jest.fn() });
-      });
+    if (sendKey) {
+      for (const key of otp) {
+        await act(async () => {
+          await sendKey({ data: key, preventDefault: jest.fn() });
+        });
+      }
     }
   };
 
@@ -116,19 +118,19 @@ describe("OtpInput", () => {
     expect(onComplete).toHaveBeenCalled();
   });
 
-  // it("should not accept key when disabled", async () => {
-  //   const onChange = jest.fn();
-  //   dom = render(
-  //     <OtpInput
-  //       numberOfInputs={6}
-  //       onChange={onChange}
-  //       onComplete={jest.fn()}
-  //       otp={""}
-  //       disabled={true}
-  //     />
-  //   );
-  //   await keyOtp("1");
+  it("should not accept key when disabled", async () => {
+    const onChange = jest.fn();
+    dom = render(
+      <OtpInput
+        numberOfInputs={6}
+        onChange={onChange}
+        onComplete={jest.fn()}
+        otp={""}
+        disabled={true}
+      />
+    );
+    await keyOtp("1");
 
-  //   expect(addEventMock).not.toHaveBeenCalled();
-  // });
+    expect(sendKey).toBeNull();
+  });
 });
