@@ -3,8 +3,8 @@
 declare module "react-otpcode-input" {
   export interface OtpInputProps extends InputAttributes {
     numberOfInputs: number;
-    onChange: Function;
-    onComplete: Function;
+    onChange: (code: string) => void;
+    onComplete: (code: string) => void;
     otp: string;
     autoFocus?: boolean;
     disabled: boolean;
