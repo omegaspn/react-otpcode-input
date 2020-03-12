@@ -7,7 +7,7 @@ declare module "react-otpcode-input" {
     onComplete: (code: string) => void;
     otp: string;
     autoFocus?: boolean;
-    disabled: boolean;
+    disabled?: boolean;
   }
 
   const OtpInput: React.FunctionComponent<OtpInputProps>;

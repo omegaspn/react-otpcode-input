@@ -2,6 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 import OtpInput from ".";
+import "@testing-library/jest-dom/extend-expect";
 
 describe("OtpInput", () => {
   let container;
@@ -21,12 +22,10 @@ describe("OtpInput", () => {
   });
 
   const keyOtp = async otp => {
-    if (sendKey) {
-      for (const key of otp) {
-        await act(async () => {
-          await sendKey({ data: key, preventDefault: jest.fn() });
-        });
-      }
+    for (const key of otp) {
+      await act(async () => {
+        await sendKey({ data: key, preventDefault: jest.fn() });
+      });
     }
   };
 
@@ -55,6 +54,9 @@ describe("OtpInput", () => {
   it("should renders correctly", () => {
     dom = renderOtp();
     expect(dom.asFragment()).toMatchSnapshot();
+    expect(
+      dom.container.querySelector("#contentEditableBox")
+    ).not.toHaveAttribute("disabled");
   });
 
   it("should renders Token inputs by given length", () => {
@@ -131,6 +133,8 @@ describe("OtpInput", () => {
     );
     await keyOtp("1");
 
-    expect(sendKey).toBeNull();
+    expect(dom.container.querySelector("#contentEditableBox")).toHaveAttribute(
+      "disabled"
+    );
   });
 });

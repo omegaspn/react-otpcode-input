@@ -44,7 +44,13 @@ const isNumber = char => {
   return !isNaN(char);
 };
 
-const OtpInput = ({ numberOfInputs, onChange, onComplete, otp, disabled }) => {
+const OtpInput = ({
+  numberOfInputs,
+  onChange,
+  onComplete,
+  otp,
+  disabled = false
+}) => {
   const otpValue = otp.padEnd(numberOfInputs);
 
   const inputs = Array(numberOfInputs).fill(0);
@@ -90,20 +96,23 @@ const OtpInput = ({ numberOfInputs, onChange, onComplete, otp, disabled }) => {
 
   useEffect(() => {
     const box = document.getElementById("contentEditableBox");
-    if (!disabled) {
-      box.addEventListener("keydown", handleKeyDown);
-      box.addEventListener("textInput", handleTextInput);
-    }
+
+    box.addEventListener("keydown", handleKeyDown);
+    box.addEventListener("textInput", handleTextInput);
 
     return () => {
       box.removeEventListener("keydown", handleKeyDown);
       box.removeEventListener("textInput", handleTextInput);
     };
-  }, [handleTextInput, disabled]);
+  }, [handleTextInput]);
 
   return (
     <>
-      <ContentEditableBox id="contentEditableBox" ref={contentEditableBoxRef} />
+      <ContentEditableBox
+        id="contentEditableBox"
+        ref={contentEditableBoxRef}
+        disabled={disabled ? "disabled" : ""}
+      />
       <Flex id="inputWrapper">
         {inputs.map((v, i) => (
           <SingleOTPInput
