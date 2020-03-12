@@ -1,11 +1,11 @@
 {
   "name": "react-otpcode-input",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "OTP Input Component",
   "main": "lib/index.js",
   "scripts": {
     "test": "NODE_ICU_DATA=node_modules/full-icu react-scripts test --env=jsdom",
-    "build": "./node_modules/.bin/babel src --out-file lib/index.js"
+    "build": "./node_modules/.bin/babel src/otp --out-file lib/index.js"
   },
   "repository": {
     "type": "git",
