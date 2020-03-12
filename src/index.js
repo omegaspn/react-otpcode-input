@@ -63,6 +63,7 @@ const OtpInput = ({ numberOfInputs, onChange, onComplete, otp, disabled }) => {
     const key = e.data || e.type;
 
     // Backspace, prevent set active when is on the first input
+
     if (key === "backSpaceKey" && activeIndex > 0) {
       setActiveIndex(activeIndex - 1);
       onChange(otp.slice(0, otp.length - 1));
@@ -72,6 +73,7 @@ const OtpInput = ({ numberOfInputs, onChange, onComplete, otp, disabled }) => {
       const newOtp = otp + key;
       setActiveIndex(activeIndex + 1);
       onChange(newOtp);
+
       if (newOtp.length === numberOfInputs) {
         onComplete(newOtp);
       }
@@ -102,7 +104,7 @@ const OtpInput = ({ numberOfInputs, onChange, onComplete, otp, disabled }) => {
   return (
     <>
       <ContentEditableBox id="contentEditableBox" ref={contentEditableBoxRef} />
-      <Flex>
+      <Flex id="inputWrapper">
         {inputs.map((v, i) => (
           <SingleOTPInput
             key={i}
