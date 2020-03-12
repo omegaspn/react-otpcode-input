@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
-import OtpInput from ".";
+import OtpInput from "./otp";
 import "@testing-library/jest-dom/extend-expect";
 
 describe("OtpInput", () => {
