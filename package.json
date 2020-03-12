@@ -1,6 +1,6 @@
 {
   "name": "react-otpcode-input",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "OTP Input Component",
   "main": "lib/index.js",
   "scripts": {
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/omegaspn/react-otpcode-input#readme",
   "dependencies": {
+    "@testing-library/jest-dom": "^5.1.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "styled-components": "^5.0.1"
@@ -35,7 +36,6 @@
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
-    "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.5.0",
     "enzyme": "^3.11.0",
     "react-scripts": "^3.4.0"
