@@ -5,11 +5,12 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "NODE_ICU_DATA=node_modules/full-icu react-scripts test --env=jsdom",
-    "build": "./node_modules/.bin/babel src/otp --out-file lib/index.js"
+    "build": "./node_modules/.bin/babel src/otp --out-file lib/index.js",
+    "unittest": "NODE_ICU_DATA=node_modules/full-icu CI=true react-scripts test --env=jsdom"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test"
+      "pre-commit": "npm run unittest"
     }
   },
   "repository": {
