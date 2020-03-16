@@ -60,6 +60,7 @@ const OtpInput = ({
   const handleKeyDown = e => {
     if (e.keyCode === 8) {
       e.preventDefault();
+      if (disabled) return;
       handleTextInput(new Event("backSpaceKey"));
     }
   };
@@ -67,9 +68,9 @@ const OtpInput = ({
   const handleTextInput = e => {
     e.preventDefault();
     const key = e.data || e.type;
+    if (disabled) return;
 
     // Backspace, prevent set active when is on the first input
-
     if (key === "backSpaceKey" && activeIndex > 0) {
       setActiveIndex(activeIndex - 1);
       onChange(otp.slice(0, otp.length - 1));
@@ -108,11 +109,7 @@ const OtpInput = ({
 
   return (
     <>
-      <ContentEditableBox
-        id="contentEditableBox"
-        ref={contentEditableBoxRef}
-        disabled={disabled ? "disabled" : ""}
-      />
+      <ContentEditableBox id="contentEditableBox" ref={contentEditableBoxRef} />
       <Flex id="inputWrapper">
         {inputs.map((v, i) => (
           <SingleOTPInput

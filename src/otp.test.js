@@ -122,6 +122,7 @@ describe("OtpInput", () => {
 
   it("should not accept key when disabled", async () => {
     const onChange = jest.fn();
+
     dom = render(
       <OtpInput
         numberOfInputs={6}
@@ -133,8 +134,6 @@ describe("OtpInput", () => {
     );
     await keyOtp("1");
 
-    expect(dom.container.querySelector("#contentEditableBox")).toHaveAttribute(
-      "disabled"
-    );
+    expect(onChange).not.toHaveBeenCalled();
   });
 });
