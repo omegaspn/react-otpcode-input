@@ -10,7 +10,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run unittest"
+      "pre-commit": "npm run unittest",
+      "pre-push": "npm run unittest"
     }
   },
   "repository": {
