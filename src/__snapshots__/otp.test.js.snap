@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OtpInput should renders correctly 1`] = `
+<DocumentFragment>
+  <input
+    class="sc-AxiKw bGePTC"
+    contenteditable="true"
+    id="contentEditableBox"
+    type="tel"
+  />
+  <div
+    class="sc-AxjAm eGwSzB"
+    id="inputWrapper"
+  >
+    <input
+      class="sc-AxirZ hWhuhl"
+      id="otp_0"
+      value=" "
+    />
+    <input
+      class="sc-AxirZ goetLB"
+      id="otp_1"
+      value=" "
+    />
+    <input
+      class="sc-AxirZ goetLB"
+      id="otp_2"
+      value=" "
+    />
+    <input
+      class="sc-AxirZ goetLB"
+      id="otp_3"
+      value=" "
+    />
+    <input
+      class="sc-AxirZ goetLB"
+      id="otp_4"
+      value=" "
+    />
+    <input
+      class="sc-AxirZ goetLB"
+      id="otp_5"
+      value=" "
+    />
+  </div>
+</DocumentFragment>
+`;
