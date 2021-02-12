@@ -1,6 +1,6 @@
 {
   "name": "react-otpcode-input",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "OTP Input Component",
   "main": "lib/index.js",
   "scripts": {

@@ -11,7 +11,7 @@ const SingleOTPInput = styled.input`
   border: 0;
   border-bottom: solid 2px #e6e8ec;
   border-color: ${(props) => (props.active ? "#2b2b2b" : "#e6e8ec")};
-  border-radius: 0,
+  border-radius: 0;
   background-color: transparent;
   width: 32px;
   margin: 0px 4px;
