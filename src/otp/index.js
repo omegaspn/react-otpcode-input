@@ -10,11 +10,13 @@ const Flex = styled.div`
 const SingleOTPInput = styled.input`
   border: 0;
   border-bottom: solid 2px #e6e8ec;
-  border-color: ${props => (props.active ? "#2b2b2b" : "#e6e8ec")};
+  border-color: ${(props) => (props.active ? "#2b2b2b" : "#e6e8ec")};
+  border-radius: 0,
   background-color: transparent;
   width: 32px;
   margin: 0px 4px;
   text-align: center;
+  padding: 1px 2px;
   outline: none;
   color: transparent;
   text-shadow: 0 0 0 #000;
@@ -23,7 +25,7 @@ const SingleOTPInput = styled.input`
 const ContentEditableBox = styled.input.attrs({
   contentEditable: true,
   suppressContentEditableWarning: true,
-  type: "tel"
+  type: "tel",
 })`
   position: fixed;
   top: 0;
@@ -40,7 +42,7 @@ const ContentEditableBox = styled.input.attrs({
   }
 `;
 
-const isNumber = char => {
+const isNumber = (char) => {
   return !isNaN(char);
 };
 
@@ -49,7 +51,7 @@ const OtpInput = ({
   onChange,
   onComplete,
   otp,
-  disabled = false
+  disabled = false,
 }) => {
   const otpValue = otp.padEnd(numberOfInputs);
 
@@ -57,7 +59,7 @@ const OtpInput = ({
   const [activeIndex, setActiveIndex] = useState(0);
   const contentEditableBoxRef = useRef(null);
 
-  const handleKeyDown = e => {
+  const handleKeyDown = (e) => {
     if (e.keyCode === 8) {
       e.preventDefault();
       if (disabled) return;
@@ -65,7 +67,7 @@ const OtpInput = ({
     }
   };
 
-  const handleTextInput = e => {
+  const handleTextInput = (e) => {
     e.preventDefault();
     const key = e.data || e.type;
     if (disabled) return;
@@ -110,7 +112,7 @@ const OtpInput = ({
   return (
     <>
       <ContentEditableBox id="contentEditableBox" ref={contentEditableBoxRef} />
-      <Flex id="inputWrapper">
+      <Flex id="inputWrapper" data-testid="inputWrapper">
         {inputs.map((v, i) => (
           <SingleOTPInput
             key={i}
