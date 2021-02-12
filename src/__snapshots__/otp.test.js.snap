@@ -2,43 +2,102 @@
 
 exports[`OtpInput should renders correctly 1`] = `
 <DocumentFragment>
-  <input
-    class="sc-AxiKw bGePTC"
+  .c0 {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  color: transparent;
+  opacity: 0;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+<input
+    class="c0"
     contenteditable="true"
     id="contentEditableBox"
     type="tel"
   />
-  <div
-    class="sc-AxjAm eGwSzB"
+  .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c1 {
+  border: 0;
+  border-bottom: solid 2px #e6e8ec;
+  border-color: #2b2b2b;
+  border-radius: 0, background-color:transparent;
+  width: 32px;
+  margin: 0px 4px;
+  text-align: center;
+  padding: 1px 2px;
+  outline: none;
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.c2 {
+  border: 0;
+  border-bottom: solid 2px #e6e8ec;
+  border-color: #e6e8ec;
+  border-radius: 0, background-color:transparent;
+  width: 32px;
+  margin: 0px 4px;
+  text-align: center;
+  padding: 1px 2px;
+  outline: none;
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+<div
+    class="c0"
+    data-testid="inputWrapper"
     id="inputWrapper"
   >
     <input
-      class="sc-AxirZ hWhuhl"
+      class="c1"
       id="otp_0"
       value=" "
     />
     <input
-      class="sc-AxirZ goetLB"
+      class="c2"
       id="otp_1"
       value=" "
     />
     <input
-      class="sc-AxirZ goetLB"
+      class="c2"
       id="otp_2"
       value=" "
     />
     <input
-      class="sc-AxirZ goetLB"
+      class="c2"
       id="otp_3"
       value=" "
     />
     <input
-      class="sc-AxirZ goetLB"
+      class="c2"
       id="otp_4"
       value=" "
     />
     <input
-      class="sc-AxirZ goetLB"
+      class="c2"
       id="otp_5"
       value=" "
     />

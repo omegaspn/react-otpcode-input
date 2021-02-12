@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 import OtpInput from "./otp";
 import "@testing-library/jest-dom/extend-expect";
+import "jest-styled-components";
 
 describe("OtpInput", () => {
   let container;
@@ -21,7 +22,7 @@ describe("OtpInput", () => {
     }
   });
 
-  const keyOtp = async otp => {
+  const keyOtp = async (otp) => {
     for (const key of otp) {
       await act(async () => {
         await sendKey({ data: key, preventDefault: jest.fn() });
