@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 
-const getBorderColor = ({active, activeBorderColor, value, hasValueColor}) => {
-  if (!!value.trim() && hasValueColor) return hasValueColor;
+const getBorderColor = ({active, activeBorderColor, value, hasValueBorderColor}) => {
+  if (!!value.trim() && hasValueBorderColor) return hasValueBorderColor;
   if (active) return activeBorderColor;
 
   return "#e6e8ec";
@@ -127,7 +127,7 @@ const OtpInput = ({
             key={i}
             id={`otp_${i}`}
             value={otpValue[i]}
-            hasValueColor={hasValueBorderColor}
+            hasValueBorderColor={hasValueBorderColor}
             active={i === activeIndex}
             activeBorderColor={activeBorderColor}
             onChange={() => {}}
