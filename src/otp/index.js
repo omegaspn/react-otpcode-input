@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 
+const getBorderColor = ({active, activeBorderColor, value, hasValueColor}) => {
+  if (!!value.trim() && hasValueColor) return hasValueColor;
+  if (active) return activeBorderColor;
+
+  return "#e6e8ec";
+};
+
 const Flex = styled.div`
   display: flex;
   flex-direction: row;
@@ -10,7 +17,7 @@ const Flex = styled.div`
 const SingleOTPInput = styled.input`
   border: 0;
   border-bottom: solid 2px #e6e8ec;
-  border-color: ${(props) => (props.active ? "#2b2b2b" : "#e6e8ec")};
+  border-color: ${getBorderColor};
   border-radius: 0;
   background-color: transparent;
   width: 32px;
@@ -51,6 +58,8 @@ const OtpInput = ({
   onChange,
   onComplete,
   otp,
+  activeBorderColor = "#2b2b2b",
+  hasValueBorderColor,
   disabled = false,
 }) => {
   const otpValue = otp.padEnd(numberOfInputs);
@@ -118,8 +127,10 @@ const OtpInput = ({
             key={i}
             id={`otp_${i}`}
             value={otpValue[i]}
-            onChange={() => {}}
+            hasValueColor={hasValueBorderColor}
             active={i === activeIndex}
+            activeBorderColor={activeBorderColor}
+            onChange={() => {}}
           />
         ))}
       </Flex>

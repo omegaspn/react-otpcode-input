@@ -8,6 +8,8 @@ declare module "react-otpcode-input" {
     otp: string;
     autoFocus?: boolean;
     disabled?: boolean;
+    activeBorderColor?: string;
+    hasValueBorderColor?: string,
   }
 
   const OtpInput: React.FunctionComponent<OtpInputProps>;
