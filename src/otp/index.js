@@ -120,6 +120,10 @@ const OtpInput = ({
             value={otpValue[i]}
             onChange={() => {}}
             active={i === activeIndex}
+            className={[
+              otpValue[i].trim() && "active",
+              i === activeIndex && "focus",
+            ].join(" ")}
           />
         ))}
       </Flex>
