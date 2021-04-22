@@ -74,32 +74,32 @@ exports[`OtpInput should renders correctly 1`] = `
     id="inputWrapper"
   >
     <input
-      class="c1  focus"
+      class="c1 focus"
       id="otp_0"
       value=" "
     />
     <input
-      class="c2  false"
+      class="c2"
       id="otp_1"
       value=" "
     />
     <input
-      class="c2  false"
+      class="c2"
       id="otp_2"
       value=" "
     />
     <input
-      class="c2  false"
+      class="c2"
       id="otp_3"
       value=" "
     />
     <input
-      class="c2  false"
+      class="c2"
       id="otp_4"
       value=" "
     />
     <input
-      class="c2  false"
+      class="c2"
       id="otp_5"
       value=" "
     />
