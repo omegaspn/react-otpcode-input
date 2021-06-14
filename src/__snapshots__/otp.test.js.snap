@@ -74,7 +74,7 @@ exports[`OtpInput should renders correctly 1`] = `
     id="inputWrapper"
   >
     <input
-      class="c1"
+      class="c1 focus"
       id="otp_0"
       value=" "
     />
