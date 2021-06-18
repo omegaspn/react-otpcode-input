@@ -2,6 +2,20 @@ import React, { useEffect, useRef, useState } from "react";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
+  contentEditableBox: {
+    position: "fixed",
+    top: 0,
+    right: 0,
+    left: 0,
+    bottom: 0,
+    width: "100%",
+    zIndex: 1,
+    color: "transparent",
+    opacity: 0,
+    "&:focus": {
+      outline: "none",
+    },
+  },
   inputWrapper: {
     display: "flex",
     flexDirection: "row",
@@ -21,20 +35,6 @@ const useStyles = createUseStyles({
     textShadow: "0 0 0 #000",
     "&.active": {
       borderColor: "#2b2b2b",
-    },
-  },
-  contentEditableBox: {
-    position: "fixed",
-    top: 0,
-    right: 0,
-    left: 0,
-    bottom: 0,
-    width: "100%",
-    zIndex: 1,
-    color: "transparent",
-    opacity: 0,
-    "&:focus": {
-      outline: "none",
     },
   },
 });
