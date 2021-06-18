@@ -1,5 +1,43 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./otp.css";
+import { createUseStyles } from "react-jss";
+
+const useStyles = createUseStyles({
+  contentEditableBox: {
+    position: "fixed",
+    top: 0,
+    right: 0,
+    left: 0,
+    bottom: 0,
+    width: "100%",
+    zIndex: 1,
+    color: "transparent",
+    opacity: 0,
+    "&:focus": {
+      outline: "none",
+    },
+  },
+  inputWrapper: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+  singleOtpInput: {
+    border: 0,
+    borderBottom: "solid 2px #e6e8ec",
+    borderRadius: 0,
+    backgroundColor: "transparent",
+    width: "32px",
+    margin: "0px 4px",
+    textAlign: "center",
+    padding: "1px 2px",
+    outline: "none",
+    color: "transparent",
+    textShadow: "0 0 0 #000",
+    "&.active": {
+      borderColor: "#2b2b2b",
+    },
+  },
+});
 
 const isNumber = (char) => {
   return !isNaN(char);
@@ -12,6 +50,7 @@ const OtpInput = ({
   otp,
   disabled = false,
 }) => {
+  const classes = useStyles();
   const otpValue = otp.padEnd(numberOfInputs);
 
   const inputs = Array(numberOfInputs).fill(0);
@@ -71,7 +110,7 @@ const OtpInput = ({
   return (
     <>
       <input
-        className="react-otp__content-editable-box"
+        className={classes.contentEditableBox}
         id="contentEditableBox"
         ref={contentEditableBoxRef}
         contentEditable={true}
@@ -79,7 +118,7 @@ const OtpInput = ({
         type="tel"
       />
       <div
-        className="react-otp__input-wrapper"
+        className={classes.inputWrapper}
         id="inputWrapper"
         data-testid="inputWrapper"
       >
@@ -90,9 +129,10 @@ const OtpInput = ({
             value={otpValue[i]}
             onChange={() => {}}
             active={i === activeIndex}
-            className={`react-otp__single-otp-input ${
-              otpValue[i].trim() ? "active" : i === activeIndex ? "focus" : ""
-            }`}
+            className={[
+              classes.singleOtpInput,
+              otpValue[i].trim() ? "active" : i === activeIndex ? "focus" : "",
+            ].join(" ")}
           />
         ))}
       </div>

@@ -3,43 +3,43 @@
 exports[`OtpInput should renders correctly 1`] = `
 <DocumentFragment>
   <input
-    class="react-otp__content-editable-box"
+    class="contentEditableBox-0-2-1"
     contenteditable="true"
     id="contentEditableBox"
     type="tel"
   />
   <div
-    class="react-otp__input-wrapper"
+    class="inputWrapper-0-2-2"
     data-testid="inputWrapper"
     id="inputWrapper"
   >
     <input
-      class="react-otp__single-otp-input focus"
+      class="singleOtpInput-0-2-3 focus"
       id="otp_0"
       value=" "
     />
     <input
-      class="react-otp__single-otp-input "
+      class="singleOtpInput-0-2-3 "
       id="otp_1"
       value=" "
     />
     <input
-      class="react-otp__single-otp-input "
+      class="singleOtpInput-0-2-3 "
       id="otp_2"
       value=" "
     />
     <input
-      class="react-otp__single-otp-input "
+      class="singleOtpInput-0-2-3 "
       id="otp_3"
       value=" "
     />
     <input
-      class="react-otp__single-otp-input "
+      class="singleOtpInput-0-2-3 "
       id="otp_4"
       value=" "
     />
     <input
-      class="react-otp__single-otp-input "
+      class="singleOtpInput-0-2-3 "
       id="otp_5"
       value=" "
     />
