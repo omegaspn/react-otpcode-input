@@ -1,9 +1,8 @@
-import React from "react";
+import "@testing-library/jest-dom/extend-expect";
 import { render } from "@testing-library/react";
+import React from "react";
 import { act } from "react-dom/test-utils";
 import OtpInput from "./otp";
-import "@testing-library/jest-dom/extend-expect";
-import "jest-styled-components";
 
 describe("OtpInput", () => {
   let container;

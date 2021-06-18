@@ -28,9 +28,7 @@
     "url": "https://github.com/omegaspn/react-otpcode-input/issues"
   },
   "homepage": "https://github.com/omegaspn/react-otpcode-input#readme",
-  "dependencies": {
-    "styled-components": "5.0.1"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "16.2.0",
     "react-dom": "16.2.0"
@@ -43,7 +41,6 @@
     "@testing-library/jest-dom": "5.1.1",
     "@testing-library/react": "9.5.0",
     "husky": "3.1.0",
-    "jest-styled-components": "7.0.3",
     "react": "16.13.0",
     "react-dom": "16.13.0",
     "react-scripts": "3.4.0"
