@@ -1,10 +1,10 @@
-.input-wrapper {
+.react-otp__input-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.single-otp-input {
+.react-otp__single-otp-input {
   border: 0;
   border-bottom: solid 2px #e6e8ec;
   border-radius: 0;
@@ -18,11 +18,11 @@
   text-shadow: 0 0 0 #000;
 }
 
-.single-otp-input.active {
+.react-otp__single-otp-input.active {
   border-color: #2b2b2b;
 }
 
-.content-editable-box {
+.react-otp__content-editable-box {
   position: fixed;
   top: 0;
   right: 0;
@@ -34,6 +34,6 @@
   opacity: 0;
 }
 
-.content-editable-box:focus {
+.react-otp__content-editable-box:focus {
   outline: none;
 }
