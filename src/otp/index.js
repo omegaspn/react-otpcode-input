@@ -1,46 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import styled from "styled-components";
-
-const Flex = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;
-
-const SingleOTPInput = styled.input`
-  border: 0;
-  border-bottom: solid 2px #e6e8ec;
-  border-color: ${(props) => (props.active ? "#2b2b2b" : "#e6e8ec")};
-  border-radius: 0;
-  background-color: transparent;
-  width: 32px;
-  margin: 0px 4px;
-  text-align: center;
-  padding: 1px 2px;
-  outline: none;
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-`;
-
-const ContentEditableBox = styled.input.attrs({
-  contentEditable: true,
-  suppressContentEditableWarning: true,
-  type: "tel",
-})`
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: 1;
-  color: transparent;
-  opacity: 0;
-
-  &:focus {
-    outline: none;
-  }
-`;
+import React, { useEffect, useRef, useState } from "react";
+import "./otp.css";
 
 const isNumber = (char) => {
   return !isNaN(char);
@@ -111,19 +70,32 @@ const OtpInput = ({
 
   return (
     <>
-      <ContentEditableBox id="contentEditableBox" ref={contentEditableBoxRef} />
-      <Flex id="inputWrapper" data-testid="inputWrapper">
+      <input
+        className="react-otp__content-editable-box"
+        id="contentEditableBox"
+        ref={contentEditableBoxRef}
+        contentEditable={true}
+        suppressContentEditableWarning={true}
+        type="tel"
+      />
+      <div
+        className="react-otp__input-wrapper"
+        id="inputWrapper"
+        data-testid="inputWrapper"
+      >
         {inputs.map((v, i) => (
-          <SingleOTPInput
+          <input
             key={i}
             id={`otp_${i}`}
             value={otpValue[i]}
             onChange={() => {}}
             active={i === activeIndex}
-            className={otpValue[i].trim() ? "active" : i === activeIndex ? "focus" : null}
+            className={`react-otp__single-otp-input ${
+              otpValue[i].trim() ? "active" : i === activeIndex ? "focus" : ""
+            }`}
           />
         ))}
-      </Flex>
+      </div>
     </>
   );
 };
