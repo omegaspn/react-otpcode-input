@@ -128,7 +128,6 @@ const OtpInput = ({
             id={`otp_${i}`}
             value={otpValue[i]}
             onChange={() => {}}
-            active={i === activeIndex}
             className={[
               classes.singleOtpInput,
               otpValue[i].trim() ? "active" : i === activeIndex ? "focus" : "",
